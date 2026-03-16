@@ -31,6 +31,7 @@ export default {
         'neon-pulse': 'neon-pulse 2s ease-in-out infinite',
         'pop-in':     'pop-in 0.4s cubic-bezier(0.175,0.885,0.32,1.275) forwards',
         'flicker':    'flicker 0.15s infinite',
+        'coin-spin':  'coin-spin 0.3s linear infinite',
       },
       keyframes: {
         blink:      { '0%,100%': { opacity: '1' }, '50%': { opacity: '0' } },
@@ -55,6 +56,13 @@ export default {
         flicker: {
           '0%,100%': { opacity: '1' },
           '50%':     { opacity: '0.85' },
+        },
+        'coin-spin': {
+          '0%':   { transform: 'scaleX(1)' },
+          '25%':  { transform: 'scaleX(0.2)' },
+          '50%':  { transform: 'scaleX(1)' },
+          '75%':  { transform: 'scaleX(0.2)' },
+          '100%': { transform: 'scaleX(1)' },
         },
       },
       boxShadow: {

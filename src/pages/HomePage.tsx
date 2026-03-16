@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { createDraw, encodeDraw } from '../services/drawService'
+import { CoinSlot } from '../components/CoinSlot'
 
 const DELAY_OPTIONS = [
   { label: 'AHORA MISMO',  value: 0   },
@@ -52,10 +53,12 @@ export function HomePage() {
         <div className="w-full max-w-lg flex flex-col gap-4">
 
           {/* Subtitle */}
-          <div className="text-center mb-2">
-            <p className="text-neon-cyan text-[9px] tracking-widest animate-neon-pulse">
-              — INSERT COIN TO PLAY —
-            </p>
+          <div className="text-center mb-2 flex justify-center">
+            <CoinSlot>
+              <p className="text-neon-cyan text-[9px] tracking-widest animate-neon-pulse font-pixel">
+                — INSERT COIN TO PLAY —
+              </p>
+            </CoinSlot>
           </div>
 
           {/* Title input */}
@@ -66,10 +69,10 @@ export function HomePage() {
               <input
                 type="text"
                 value={title}
-                placeholder="EJ. QUIEN PAGA LA CENA"
+                placeholder="EJ. Ganemos todos a una"
                 maxLength={40}
                 onChange={(e) => setTitle(e.target.value.toUpperCase())}
-                className="bg-transparent text-neon-green text-xs w-full outline-none placeholder:text-neon-green/30 tracking-wider font-pixel"
+                className="bg-transparent text-neon-green text-xl w-full outline-none placeholder:text-neon-green/30 tracking-wider font-mono"
               />
             </div>
           </PixelCard>
@@ -108,7 +111,8 @@ export function HomePage() {
               <select
                 value={delay}
                 onChange={(e) => setDelay(Number(e.target.value))}
-                className="w-full bg-retro-bg border border-neon-pink/40 text-neon-pink font-pixel text-[9px] px-3 py-2.5 outline-none appearance-none tracking-wider focus:border-neon-pink cursor-pointer"
+                className="w-full bg-retro-bg font-mono text-xl px-3 py-2 outline-none appearance-none tracking-wider cursor-pointer border"
+                style={{ color: '#ff006e', borderColor: '#ff006e66', caretColor: '#ff006e' }}
               >
                 {DELAY_OPTIONS.map((o) => (
                   <option key={o.value} value={o.value} className="bg-retro-bg">{o.label}</option>
@@ -139,18 +143,25 @@ export function HomePage() {
           >
             ▶ START GAME ◀
           </button>
-
-          <p className="text-retro-dim text-[7px] text-center tracking-widest mt-1">
-            LOS NÚMEROS SE GENERAN AL CREAR Y SE SELLAN EN EL LINK
-          </p>
         </div>
       </main>
 
       {/* Footer */}
-      <footer className="border-t-2 border-retro-border px-4 py-3">
-        <p className="text-retro-dim text-[7px] text-center tracking-widest">
-          © SORTEOLINK · ALL RIGHTS RESERVED · 2025
-        </p>
+      <footer className="border-t-2 border-retro-border px-4 py-4">
+        <div className="flex flex-col items-center gap-3">
+          <a
+            href="https://paypal.me/alexcaraballo96"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 border-2 border-neon-yellow/60 bg-neon-yellow/10 px-4 py-2 font-pixel text-[8px] tracking-widest transition-all hover:bg-neon-yellow/20 active:translate-y-0.5 shadow-pixel active:shadow-none"
+            style={{ color: '#ffe600', textShadow: '0 0 6px #ffe60080' }}
+          >
+            ♥ DONAR · PAYPAL
+          </a>
+          <p className="text-retro-dim text-[7px] text-center tracking-widest">
+            © SORTEOLINK · ALL RIGHTS RESERVED · 2025
+          </p>
+        </div>
       </footer>
     </div>
   )
@@ -158,52 +169,47 @@ export function HomePage() {
 
 /* ── Reusable components ────────────────────────────────────── */
 
-const colorMap = {
-  green:  { border: 'border-neon-green/50', bg: 'bg-neon-green/5'  },
-  cyan:   { border: 'border-neon-cyan/50',  bg: 'bg-neon-cyan/5'   },
-  pink:   { border: 'border-neon-pink/50',  bg: 'bg-neon-pink/5'   },
-  yellow: { border: 'border-neon-yellow/50',bg: 'bg-neon-yellow/5' },
-}
+type NeonColor = 'green' | 'cyan' | 'pink' | 'yellow'
 
-function PixelCard({ children, color = 'green' }: { children: React.ReactNode; color?: keyof typeof colorMap }) {
-  const c = colorMap[color]
+function PixelCard({ children, color = 'green' }: { children: React.ReactNode; color?: NeonColor }) {
+  const hex = neonColors[color]
   return (
-    <div className={`border-2 ${c.border} ${c.bg} p-4 relative`}>
-      {/* Corner decorations */}
-      <span className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-current opacity-60" />
-      <span className="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 border-current opacity-60" />
-      <span className="absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 border-current opacity-60" />
-      <span className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-current opacity-60" />
+    <div
+      className="border-2 p-4 relative"
+      style={{ borderColor: `${hex}80`, backgroundColor: `${hex}0d` }}
+    >
+      <span className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 opacity-60" style={{ borderColor: hex }} />
+      <span className="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 opacity-60" style={{ borderColor: hex }} />
+      <span className="absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 opacity-60" style={{ borderColor: hex }} />
+      <span className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 opacity-60" style={{ borderColor: hex }} />
       {children}
     </div>
   )
 }
 
-const labelColorMap = {
-  green:  'text-neon-green',
-  cyan:   'text-neon-cyan',
-  pink:   'text-neon-pink',
-  yellow: 'text-neon-yellow',
-}
-
-function FieldLabel({ children, color = 'green', small = false }: { children: React.ReactNode; color?: keyof typeof labelColorMap; small?: boolean }) {
+function FieldLabel({ children, color = 'green', small = false }: { children: React.ReactNode; color?: NeonColor; small?: boolean }) {
+  const hex = neonColors[color]
   return (
-    <p className={`${labelColorMap[color]} ${small ? 'text-[7px]' : 'text-[9px]'} tracking-widest mb-1`}>
+    <p
+      className={`${small ? 'text-[7px]' : 'text-[9px]'} tracking-widest mb-1 font-pixel`}
+      style={{ color: hex, textShadow: `0 0 8px ${hex}80` }}
+    >
       {children}
     </p>
   )
 }
 
-const inputColorMap = {
-  green:  'border-neon-green/40 text-neon-green focus:border-neon-green',
-  cyan:   'border-neon-cyan/40  text-neon-cyan  focus:border-neon-cyan',
-  pink:   'border-neon-pink/40  text-neon-pink  focus:border-neon-pink',
-  yellow: 'border-neon-yellow/40 text-neon-yellow focus:border-neon-yellow',
+const neonColors = {
+  green:  '#00ff41',
+  cyan:   '#00f5ff',
+  pink:   '#ff006e',
+  yellow: '#ffe600',
 }
 
 function PixelInput({ value, onChange, min = -999999, max = 999999, color = 'green' }: {
-  value: number; onChange: (v: number) => void; min?: number; max?: number; color?: keyof typeof inputColorMap
+  value: number; onChange: (v: number) => void; min?: number; max?: number; color?: keyof typeof neonColors
 }) {
+  const hex = neonColors[color]
   return (
     <input
       type="number"
@@ -215,7 +221,8 @@ function PixelInput({ value, onChange, min = -999999, max = 999999, color = 'gre
         const v = parseInt(e.target.value)
         if (!isNaN(v)) onChange(Math.min(max, Math.max(min, v)))
       }}
-      className={`w-full bg-retro-bg border ${inputColorMap[color]} font-pixel text-xs px-3 py-2 outline-none tracking-widest text-center`}
+      className="w-full bg-retro-bg font-mono text-2xl px-3 py-2 outline-none text-center border"
+      style={{ color: hex, borderColor: `${hex}66`, caretColor: hex }}
     />
   )
 }
