@@ -1,6 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323:wght@400&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body { margin: 0; -webkit-font-smoothing: antialiased; }
+body {
+  margin: 0;
+  background-color: #070710;
+  -webkit-font-smoothing: none;
+  image-rendering: pixelated;
+}
 #root { min-height: 100vh; }
+
+/* CRT scanlines overlay */
+.crt::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(0,0,0,0.18) 3px,
+    rgba(0,0,0,0.18) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* CRT vignette */
+.crt::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.7) 100%);
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* Pixel border */
+.pixel-box {
+  border: 3px solid;
+  image-rendering: pixelated;
+}
+
+/* Neon text helpers */
+.neon-green  { color: #00ff41; text-shadow: 0 0 8px #00ff41, 0 0 20px #00ff4140; }
+.neon-pink   { color: #ff006e; text-shadow: 0 0 8px #ff006e, 0 0 20px #ff006e40; }
+.neon-cyan   { color: #00f5ff; text-shadow: 0 0 8px #00f5ff, 0 0 20px #00f5ff40; }
+.neon-yellow { color: #ffe600; text-shadow: 0 0 8px #ffe600, 0 0 20px #ffe60040; }
+
+/* Pixel input */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; }
+input[type="number"] { -moz-appearance: textfield; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; background: #070710; }
+::-webkit-scrollbar-thumb { background: #1e1e4a; }
