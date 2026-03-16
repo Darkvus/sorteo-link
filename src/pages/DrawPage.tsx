@@ -127,15 +127,16 @@ export function DrawPage() {
   const remaining = useCountdown(draw?.drawAt ?? 0)
   const revealed = remaining <= 0
   const [slotActive, setSlotActive] = useState(false)
+  const [manualReveal, setManualReveal] = useState(false)
   const activatedRef = useRef(false)
 
-  // Trigger slot spin exactly once when countdown hits 0
-  useEffect(() => {
-    if (revealed && !activatedRef.current) {
+  const handleReveal = () => {
+    if (!activatedRef.current) {
       activatedRef.current = true
+      setManualReveal(true)
       setSlotActive(true)
     }
-  }, [revealed])
+  }
 
   if (!draw) {
     return (
@@ -212,7 +213,7 @@ export function DrawPage() {
         </div>
 
         {/* Countdown / Numbers */}
-        {!revealed ? (
+        {!revealed || (!manualReveal && revealed) ? (
           <div className="flex flex-col items-center gap-6 w-full max-w-sm">
             <div className="w-full border-2 border-neon-cyan/40 bg-neon-cyan/5 p-6 flex flex-col items-center gap-5 relative">
               <span className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-neon-cyan/60" />
@@ -230,11 +231,20 @@ export function DrawPage() {
               )}
             </div>
 
-            <div className="border border-retro-border bg-retro-surface px-4 py-2 flex items-center gap-2">
-              <span className="text-neon-pink text-xs animate-blink">◆</span>
-              <p className="text-retro-dim text-[7px] tracking-wide">SUERTE A TODOS :)</p>
-              <span className="text-neon-pink text-xs animate-blink">◆</span>
-            </div>
+            {revealed ? (
+              <button
+                onClick={handleReveal}
+                className="w-full bg-neon-yellow text-retro-bg font-pixel text-sm py-4 tracking-widest shadow-pixel hover:bg-white active:translate-y-1 active:shadow-none transition-all animate-neon-pulse"
+              >
+                🎰 REVELAR NÚMEROS 🎰
+              </button>
+            ) : (
+              <div className="border border-retro-border bg-retro-surface px-4 py-2 flex items-center gap-2">
+                <span className="text-neon-pink text-xs animate-blink">◆</span>
+                <p className="text-retro-dim text-[7px] tracking-wide">SUERTE A TODOS :)</p>
+                <span className="text-neon-pink text-xs animate-blink">◆</span>
+              </div>
+            )}
           </div>
         ) : (
           <div className="flex flex-col items-center gap-6">
