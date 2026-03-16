@@ -157,8 +157,32 @@ export function DrawPage() {
       <header className="border-b-2 border-neon-green/40 px-4 py-4 bg-retro-surface">
         <div className="max-w-lg mx-auto flex items-center justify-between">
           <button onClick={() => navigate('/')} className="flex items-center gap-2 text-neon-green hover:animate-glitch transition-all">
-            <span className="text-lg">🎮</span>
-            <span className="text-[10px] neon-green tracking-widest">SORTEOLINK</span>
+            <svg width="22" height="22" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="dbg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stopColor="#0d0d1a"/>
+                  <stop offset="100%" stopColor="#070710"/>
+                </linearGradient>
+              </defs>
+              <rect width="64" height="64" rx="12" fill="url(#dbg)"/>
+              <rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="#00f5ff" strokeWidth="1.5" strokeOpacity="0.5"/>
+              <circle cx="32" cy="30" r="19" fill="#ffe600"/>
+              <circle cx="32" cy="30" r="17" fill="#ffd000"/>
+              <circle cx="32" cy="30" r="15" fill="#ffb800"/>
+              <circle cx="32" cy="30" r="19" fill="none" stroke="#b8860b" strokeWidth="2"/>
+              <rect x="24" y="21" width="16" height="3" fill="#7a5800"/>
+              <rect x="34" y="24" width="3" height="5" fill="#7a5800"/>
+              <rect x="31" y="29" width="3" height="5" fill="#7a5800"/>
+              <rect x="27" y="34" width="4" height="4" fill="#7a5800"/>
+              <ellipse cx="26" cy="23" rx="5" ry="2.5" fill="#fff" fillOpacity="0.3" transform="rotate(-30 26 23)"/>
+              <rect x="20" y="52" width="24" height="4" rx="1" fill="#0a0a1a" stroke="#00f5ff" strokeWidth="1.5"/>
+              <rect x="24" y="53.5" width="16" height="1" fill="#00f5ff" fillOpacity="0.5"/>
+              <rect x="4"  y="4"  width="6" height="2" fill="#00f5ff" fillOpacity="0.7"/>
+              <rect x="4"  y="4"  width="2" height="6" fill="#00f5ff" fillOpacity="0.7"/>
+              <rect x="54" y="4"  width="6" height="2" fill="#00f5ff" fillOpacity="0.7"/>
+              <rect x="58" y="4"  width="2" height="6" fill="#00f5ff" fillOpacity="0.7"/>
+            </svg>
+            <span className="text-[10px] neon-green tracking-widest">RETROJACKPOT</span>
           </button>
           <CopyButton draw={draw} />
         </div>
@@ -248,10 +272,21 @@ export function DrawPage() {
         </button>
       </main>
 
-      <footer className="border-t-2 border-retro-border px-4 py-3">
-        <p className="text-retro-dim text-[7px] text-center tracking-widest">
-          © SORTEOLINK · SEED: {draw.uuid.slice(0, 8).toUpperCase()}
-        </p>
+      <footer className="border-t-2 border-retro-border px-4 py-4">
+        <div className="flex flex-col items-center gap-3">
+          <a
+            href="https://paypal.me/alexcaraballo96"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 border-2 border-neon-yellow/60 bg-neon-yellow/10 px-4 py-2 font-pixel text-[8px] tracking-widest transition-all hover:bg-neon-yellow/20 active:translate-y-0.5 shadow-pixel active:shadow-none"
+            style={{ color: '#ffe600', textShadow: '0 0 6px #ffe60080' }}
+          >
+            ♥ DONAR · PAYPAL
+          </a>
+          <p className="text-retro-dim text-[7px] text-center tracking-widest">
+            © RETROJACKPOT · SEED: {draw.uuid.slice(0, 8).toUpperCase()}
+          </p>
+        </div>
       </footer>
     </div>
   )

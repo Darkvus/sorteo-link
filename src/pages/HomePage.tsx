@@ -40,9 +40,33 @@ export function HomePage() {
       <header className="border-b-2 border-neon-green/40 px-4 py-4 bg-retro-surface">
         <div className="max-w-lg mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <span className="text-neon-green text-xl animate-glitch">🎮</span>
+            <svg width="28" height="28" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="animate-glitch flex-shrink-0">
+              <defs>
+                <linearGradient id="hbg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stopColor="#0d0d1a"/>
+                  <stop offset="100%" stopColor="#070710"/>
+                </linearGradient>
+              </defs>
+              <rect width="64" height="64" rx="12" fill="url(#hbg)"/>
+              <rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="#00f5ff" strokeWidth="1.5" strokeOpacity="0.5"/>
+              <circle cx="32" cy="30" r="19" fill="#ffe600"/>
+              <circle cx="32" cy="30" r="17" fill="#ffd000"/>
+              <circle cx="32" cy="30" r="15" fill="#ffb800"/>
+              <circle cx="32" cy="30" r="19" fill="none" stroke="#b8860b" strokeWidth="2"/>
+              <rect x="24" y="21" width="16" height="3" fill="#7a5800"/>
+              <rect x="34" y="24" width="3" height="5" fill="#7a5800"/>
+              <rect x="31" y="29" width="3" height="5" fill="#7a5800"/>
+              <rect x="27" y="34" width="4" height="4" fill="#7a5800"/>
+              <ellipse cx="26" cy="23" rx="5" ry="2.5" fill="#fff" fillOpacity="0.3" transform="rotate(-30 26 23)"/>
+              <rect x="20" y="52" width="24" height="4" rx="1" fill="#0a0a1a" stroke="#00f5ff" strokeWidth="1.5"/>
+              <rect x="24" y="53.5" width="16" height="1" fill="#00f5ff" fillOpacity="0.5"/>
+              <rect x="4"  y="4"  width="6" height="2" fill="#00f5ff" fillOpacity="0.7"/>
+              <rect x="4"  y="4"  width="2" height="6" fill="#00f5ff" fillOpacity="0.7"/>
+              <rect x="54" y="4"  width="6" height="2" fill="#00f5ff" fillOpacity="0.7"/>
+              <rect x="58" y="4"  width="2" height="6" fill="#00f5ff" fillOpacity="0.7"/>
+            </svg>
             <h1 className="text-neon-green text-sm neon-green animate-glitch tracking-widest">
-              SORTEOLINK
+              RETROJACKPOT
             </h1>
           </div>
           <span className="text-neon-pink text-[9px] animate-blink">▶ PLAYER 1</span>
@@ -159,7 +183,7 @@ export function HomePage() {
             ♥ DONAR · PAYPAL
           </a>
           <p className="text-retro-dim text-[7px] text-center tracking-widest">
-            © SORTEOLINK · ALL RIGHTS RESERVED · 2025
+            © RETROJACKPOT · ALL RIGHTS RESERVED · 2025
           </p>
         </div>
       </footer>
