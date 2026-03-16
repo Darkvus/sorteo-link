@@ -200,7 +200,7 @@ export function DrawPage() {
 
             <div className="border border-retro-border bg-retro-surface px-4 py-2 flex items-center gap-2">
               <span className="text-neon-pink text-xs animate-blink">◆</span>
-              <p className="text-retro-dim text-[7px] tracking-wide">NÚMEROS SELLADOS — NADIE LOS VE ANTES</p>
+              <p className="text-retro-dim text-[7px] tracking-wide">SUERTE A TODOS :)</p>
               <span className="text-neon-pink text-xs animate-blink">◆</span>
             </div>
           </div>
