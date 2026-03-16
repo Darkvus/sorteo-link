@@ -20,13 +20,15 @@ export function createDraw(
   count: number,
   delayMinutes: number,
 ): DrawConfig {
+  const now = Date.now()
   return {
     uuid: crypto.randomUUID(),
     title: title.trim(),
     min,
     max,
     count,
-    drawAt: Date.now() + delayMinutes * 60 * 1000,
+    createdAt: now,
+    drawAt: now + delayMinutes * 60 * 1000,
     numbers: randomNumbers(min, max, count),
   }
 }

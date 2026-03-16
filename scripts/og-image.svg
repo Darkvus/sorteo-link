@@ -1,0 +1,105 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#070710"/>
+      <stop offset="100%" stop-color="#0d0d1a"/>
+    </linearGradient>
+    <filter id="gcoin"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="gcyan"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="gtext"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Scanline grid -->
+  <g opacity="0.05" stroke="#00f5ff" stroke-width="1">
+    <line x1="0" y1="90"  x2="1200" y2="90"/>
+    <line x1="0" y1="180" x2="1200" y2="180"/>
+    <line x1="0" y1="270" x2="1200" y2="270"/>
+    <line x1="0" y1="360" x2="1200" y2="360"/>
+    <line x1="0" y1="450" x2="1200" y2="450"/>
+    <line x1="0" y1="540" x2="1200" y2="540"/>
+    <line x1="150" y1="0" x2="150" y2="630"/>
+    <line x1="300" y1="0" x2="300" y2="630"/>
+    <line x1="450" y1="0" x2="450" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/>
+    <line x1="750" y1="0" x2="750" y2="630"/>
+    <line x1="900" y1="0" x2="900" y2="630"/>
+    <line x1="1050" y1="0" x2="1050" y2="630"/>
+  </g>
+
+  <!-- Outer border neon cyan -->
+  <rect x="12" y="12" width="1176" height="606" rx="8" fill="none" stroke="#00f5ff" stroke-width="2" stroke-opacity="0.4"/>
+  <!-- Corner pixel accents -->
+  <rect x="12" y="12" width="30" height="6" fill="#00f5ff" fill-opacity="0.7"/>
+  <rect x="12" y="12" width="6" height="30" fill="#00f5ff" fill-opacity="0.7"/>
+  <rect x="1158" y="12" width="30" height="6" fill="#00f5ff" fill-opacity="0.7"/>
+  <rect x="1182" y="12" width="6" height="30" fill="#00f5ff" fill-opacity="0.7"/>
+  <rect x="12" y="612" width="30" height="6" fill="#00f5ff" fill-opacity="0.7"/>
+  <rect x="12" y="588" width="6" height="30" fill="#00f5ff" fill-opacity="0.7"/>
+  <rect x="1158" y="612" width="30" height="6" fill="#00f5ff" fill-opacity="0.7"/>
+  <rect x="1182" y="588" width="6" height="30" fill="#00f5ff" fill-opacity="0.7"/>
+
+  <!-- Bottom accent bar neon -->
+  <rect x="0" y="616" width="1200" height="14" fill="#00f5ff" fill-opacity="0.15"/>
+  <rect x="0" y="616" width="1200" height="2" fill="#00f5ff" fill-opacity="0.6"/>
+
+  <!-- ── Big coin (left) ── -->
+  <g transform="translate(100, 155)" filter="url(#gcoin)">
+    <circle cx="160" cy="160" r="145" fill="#ffe600"/>
+    <circle cx="160" cy="160" r="130" fill="#ffd000"/>
+    <circle cx="160" cy="160" r="115" fill="#ffb800"/>
+    <circle cx="160" cy="160" r="145" fill="none" stroke="#b8860b" stroke-width="10"/>
+    <circle cx="160" cy="160" r="110" fill="none" stroke="#b8860b" stroke-width="6" stroke-opacity="0.4"/>
+    <!-- Lucky 7 -->
+    <rect x="105" y="95"  width="110" height="22" fill="#7a5800"/>
+    <rect x="185" y="117" width="22" height="38" fill="#7a5800"/>
+    <rect x="162" y="155" width="22" height="38" fill="#7a5800"/>
+    <rect x="120" y="192" width="30" height="30" fill="#7a5800"/>
+    <!-- Shine -->
+    <ellipse cx="120" cy="105" rx="45" ry="22" fill="#fff" fill-opacity="0.25" transform="rotate(-30 120 105)"/>
+  </g>
+
+  <!-- ── Coin slot machine bottom ── -->
+  <g transform="translate(100, 490)" filter="url(#gcyan)">
+    <rect x="60" y="0" width="200" height="28" rx="4" fill="#0a0a1a" stroke="#00f5ff" stroke-width="3"/>
+    <rect x="90" y="8" width="140" height="10" fill="#00f5ff" fill-opacity="0.3"/>
+    <text x="160" y="-10" text-anchor="middle" font-size="18" fill="#00f5ff" font-family="monospace" font-weight="bold" letter-spacing="4">INSERT COIN</text>
+  </g>
+
+  <!-- ── Text (right) ── -->
+  <!-- SORTEOLINK title with neon glow -->
+  <text x="480" y="220" font-size="110" font-weight="900" fill="#00f5ff"
+    font-family="monospace" letter-spacing="-2"
+    style="text-shadow: 0 0 20px #00f5ff"
+    filter="url(#gtext)">SORTEO</text>
+  <text x="480" y="340" font-size="110" font-weight="900" fill="#ffe600"
+    font-family="monospace" letter-spacing="-2"
+    filter="url(#gtext)">LINK</text>
+
+  <!-- Neon underline -->
+  <rect x="480" y="358" width="560" height="5" rx="2" fill="#ffe600" fill-opacity="0.7"/>
+  <rect x="480" y="358" width="560" height="2" rx="1" fill="#ffe600"/>
+
+  <!-- Tagline -->
+  <text x="480" y="420" font-size="32" fill="#3a3a6a" font-family="monospace" letter-spacing="6">SORTEOS CON CUENTA ATRAS</text>
+  <text x="480" y="460" font-size="32" fill="#3a3a6a" font-family="monospace" letter-spacing="6">COMPARTIBLES POR LINK</text>
+
+  <!-- Feature pills retro -->
+  <g transform="translate(480, 500)">
+    <rect width="160" height="38" fill="#111128" stroke="#00ff41" stroke-width="2"/>
+    <text x="80" y="25" text-anchor="middle" font-size="18" fill="#00ff41" font-family="monospace" letter-spacing="2">RANDOM</text>
+
+    <rect x="176" width="160" height="38" fill="#111128" stroke="#ff006e" stroke-width="2"/>
+    <text x="256" y="25" text-anchor="middle" font-size="18" fill="#ff006e" font-family="monospace" letter-spacing="2">SELLADO</text>
+
+    <rect x="352" width="200" height="38" fill="#111128" stroke="#ffe600" stroke-width="2"/>
+    <text x="452" y="25" text-anchor="middle" font-size="18" fill="#ffe600" font-family="monospace" letter-spacing="2">UUID LINK</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="600" y="600" text-anchor="middle" font-size="22" fill="#3a3a6a" font-family="monospace" letter-spacing="4">
+    github.com/Darkvus/sorteo-link
+  </text>
+</svg>

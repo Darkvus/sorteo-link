@@ -177,6 +177,14 @@ export function DrawPage() {
               : `${draw.count} NÚMEROS · RANGO ${draw.min}–${draw.max}`
             }
           </p>
+          {draw.createdAt && (
+            <p className="text-retro-dim text-[7px] tracking-widest mt-1">
+              CREADO: {new Date(draw.createdAt).toLocaleString('es-ES', {
+                day: '2-digit', month: '2-digit', year: 'numeric',
+                hour: '2-digit', minute: '2-digit',
+              })}
+            </p>
+          )}
         </div>
 
         {/* Countdown / Numbers */}
